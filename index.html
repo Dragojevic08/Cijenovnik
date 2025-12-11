@@ -1,82 +1,77 @@
 <!DOCTYPE html>
 <html lang="bs">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cjenovnik</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f4f4;
-            margin: 0;
-            padding: 20px;
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: #fff;
-            margin-top: 20px;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        th, td {
-            padding: 12px 15px;
-            border-bottom: 1px solid #ddd;
-        }
-        th {
-            background: #333;
-            color: #fff;
-            text-align: left;
-        }
-        tr:nth-child(even) {
-            background: #f7f7f7;
-        }
-        .price {
-            font-weight: bold;
-            color: #2196F3;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Cjenovnik</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 10px;
+        background: #fafafa;
+    }
+    .list {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .item {
+        background: #fff;
+        margin: 10px 0;
+        padding: 15px;
+        border-radius: 6px;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-between;
+    }
+    .item .info {
+        width: 70%;
+    }
+    .item .price {
+        width: 30%;
+        text-align: right;
+        font-weight: bold;
+        color: #0078d4;
+    }
+</style>
 </head>
 <body>
 
-<h1>CJENOVNIK</h1>
+<div class="list">
+    <h2 style="text-align:center;">Cjenovnik</h2>
 
-<table>
-    <tr>
-        <th>Naziv</th>
-        <th>Opis</th>
-        <th>Cijena</th>
-        <th>Napomena</th>
-    </tr>
-    <tr>
-        <td>Popravak br. 1</td>
-        <td>Kratki opis usluge</td>
-        <td class="price">10 KM</td>
-        <td>-</td>
-    </tr>
-    <tr>
-        <td>Popravak br. 2</td>
-        <td>Kratki opis usluge</td>
-        <td class="price">15 KM</td>
-        <td>-</td>
-    </tr>
-    <tr>
-        <td>Proizvod A</td>
-        <td>Kratki opis proizvoda</td>
-        <td class="price">5 KM</td>
-        <td>Na akciji</td>
-    </tr>
-    <tr>
-        <td>Proizvod B</td>
-        <td>Kratki opis proizvoda</td>
-        <td class="price">7 KM</td>
-        <td>-</td>
-    </tr>
-</table>
+    <div class="item">
+        <div class="info">
+            <div>Popravak 1</div>
+            <small>Kratki opis</small>
+        </div>
+        <div class="price">10 KM</div>
+    </div>
+
+    <div class="item">
+        <div class="info">
+            <div>Popravak 2</div>
+            <small>Kratki opis</small>
+        </div>
+        <div class="price">15 KM</div>
+    </div>
+
+    <div class="item">
+        <div class="info">
+            <div>Proizvod A</div>
+            <small>Kratki opis</small>
+        </div>
+        <div class="price">5 KM</div>
+    </div>
+
+    <div class="item">
+        <div class="info">
+            <div>Proizvod B</div>
+            <small>Kratki opis</small>
+        </div>
+        <div class="price">7 KM</div>
+    </div>
+</div>
 
 </body>
 </html>
