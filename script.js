@@ -37,7 +37,43 @@
         el.classList.add("visible");
                 }
             });
-        }
+}
+const navbar = document.getElementById("navbar");
+
+window.addEventListener("scroll", () => {
+    const triggerHeight = window.innerHeight * 0.4; // prag za scrolled
+    if (window.scrollY > triggerHeight) {
+        navbar.classList.add("scrolled");
+    } else {
+        navbar.classList.remove("scrolled");
+    }
+});
+/* Interaktivni cjenovnik */
+const options = document.querySelectorAll(".option");
+const infoBox = document.getElementById("selectedInfo");
+
+options.forEach(option => {
+    option.addEventListener("click", () => {
+
+        // ukloni sve klase
+        options.forEach(o => o.classList.remove("active", "dimmed"));
+
+        // aktiviraj kliknutu
+        option.classList.add("active");
+
+        // ostale smanji
+        options.forEach(o => {
+            if (o !== option) o.classList.add("dimmed");
+        });
+
+        // upiši info
+        infoBox.innerHTML = `
+            <h3>${option.dataset.name}</h3>
+            <p>${option.dataset.desc}</p>
+            <p style="font-weight:bold; color:#ff1493; margin-top:10px;">${option.dataset.price}</p>
+        `;
+    });
+});
 
     window.addEventListener("scroll", checkAnimations);
     window.addEventListener("load", checkAnimations);
