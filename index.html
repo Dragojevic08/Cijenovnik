@@ -5,285 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lumière Royal</title>
 
-    <style>
-        /* RESET */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
-            background: #f7edff;
-            color: #333;
-            scroll-behavior: smooth;
-        }
-
-        /* ANIMATIONS */
-        [data-animate] {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: 1s ease;
-        }
-
-            [data-animate].visible {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-        /* -------------------------------- NAV BAR -------------------------------- */
-
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 14px 22px;
-            background: rgba(255, 182, 193, 0.92);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            z-index: 2000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-logo {
-            font-size: 1.5rem;
-            color: white;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 26px;
-        }
-
-            .nav-links li a {
-                color: white;
-                text-decoration: none;
-                font-size: 1rem;
-                font-weight: bold;
-                transition: 0.3s;
-            }
-
-                .nav-links li a:hover {
-                    color: #ff69b4;
-                }
-
-        /* Hamburger */
-        .nav-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 2rem;
-            color: white;
-            cursor: pointer;
-        }
-
-        /* Mobile nav */
-        @media (max-width: 700px) {
-            .nav-toggle {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                right: 0;
-                width: 100%;
-                flex-direction: column;
-                background: rgba(255, 182, 193, 0.96);
-                padding: 20px 0;
-                gap: 20px;
-            }
-
-                .nav-links.show {
-                    display: flex;
-                }
-        }
-
-        /* -------------------------------- HERO -------------------------------- */
-
-        .hero {
-            height: 80vh;
-            margin-top: 80px;
-            padding: 0 15px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: url("hero.jpg") center/cover no-repeat;
-            position: relative;
-        }
-
-            .hero::after {
-                content: "";
-                position: absolute;
-                inset: 0;
-                background: rgba(255, 182, 193, 0.55);
-                backdrop-filter: blur(2px);
-            }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-            .hero-content img.logo {
-                width: 120px;
-                margin-bottom: 15px;
-            }
-
-            .hero-content h1 {
-                font-size: 42px;
-                text-shadow: 2px 2px 12px rgba(255, 105, 180, 0.7);
-            }
-
-        /* -------------------------------- SEKCIJE -------------------------------- */
-
-        .onama,
-        .gallery,
-        .cjenovnik {
-            width: 92%;
-            max-width: 900px;
-            margin: 90px auto;
-            padding: 30px;
-            background: #ffe4ec;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(255,105,180,0.25);
-        }
-
-            .onama h2,
-            .cjenovnik h2 {
-                text-align: center;
-                font-size: 32px;
-                margin-bottom: 20px;
-                color: #ff69b4;
-            }
-
-            .onama p {
-                font-size: 18px;
-                line-height: 1.6;
-            }
-
-        /* -------------------------------- GALERIJA -------------------------------- */
-
-        .gallery {
-            position: relative;
-            padding: 35px 15px;
-        }
-
-            .gallery img {
-                display: none;
-                width: 100%;
-                border-radius: 12px;
-                opacity: 0;
-                transition: opacity 1s ease;
-            }
-
-                .gallery img.active {
-                    display: block;
-                    opacity: 1;
-                }
-
-            /* dugmad */
-            .gallery button {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                border: none;
-                font-size: 26px;
-                padding: 10px 14px;
-                cursor: pointer;
-                border-radius: 50%;
-                color: white;
-                background: rgba(255, 182, 193, 0.75);
-            }
-
-            .gallery .prev {
-                left: 12px;
-            }
-
-            .gallery .next {
-                right: 12px;
-            }
-
-        /* -------------------------------- CJENOVNIK -------------------------------- */
-
-        .cjenovnik table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 16px;
-        }
-
-        .cjenovnik td {
-            padding: 14px 0;
-            border-bottom: 1px solid #ffb6c1;
-        }
-
-        .price {
-            text-align: right;
-            font-weight: bold;
-            color: #ff1493;
-        }
-
-        /* -------------------------------- FOOTER -------------------------------- */
-
-        footer {
-            margin-top: 50px;
-            background: #ffb6c1;
-            padding: 15px;
-            border-top: 2px solid #ff69b4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 12px;
-        }
-
-            footer img {
-                width: 40px;
-            }
-
-            footer p {
-                color: white;
-                font-weight: 500;
-                font-size: 16px;
-            }
-
-        /* -------------------------------- MOBILNA ADAPTACIJA -------------------------------- */
-
-        @media (max-width: 600px) {
-            .hero {
-                height: 70vh;
-            }
-
-            .hero-content h1 {
-                font-size: 34px;
-            }
-
-            .onama h2,
-            .cjenovnik h2 {
-                font-size: 26px;
-            }
-
-            .onama p {
-                font-size: 16px;
-            }
-
-            .cjenovnik table {
-                font-size: 14px;
-            }
-
-            .gallery button {
-                font-size: 20px;
-                padding: 6px 10px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -304,7 +26,7 @@
     <!-- HERO -->
     <section class="hero" id="hero">
         <div class="hero-content">
-            <img src="slike/logo.png" class="logo" alt="Logo" />
+            <img src="slike/drugimoram.png" class="logo" alt="Logo" />
             <h1>Lumière Royal</h1>
         </div>
     </section>
@@ -314,7 +36,11 @@
         <h2>O nama</h2>
         <p>
             Lumière Royal izrađuje luksuzne, ručno pravljene bukete od svijeća –
-            savršene za poklon, dekoraciju i posebne trenutke...
+            savršene za poklon, dekoraciju i posebne trenutke. Naši buketi su
+            kombinacija kreativnosti i pažljivo biranih materijala, pružajući
+            toplinu i eleganciju svakom prostoru. Svaki buket je jedinstven i
+            kreiran sa ljubavlju, idealan za proslave, poklone ili jednostavno
+            da unesete dašak luksuza u svoj dom.
         </p>
     </section>
 
@@ -324,6 +50,16 @@
         <img src="slike/cvijece.2.jpg" />
         <img src="slike/cvijece.3.jpg" />
         <img src="slike/cvijece.4.jpg" />
+        <img src="slike/cvijece.5.jpg" />
+        <img src="slike/cvijece.6.jpg" />
+        <img src="slike/cvijece.7.jpg" />
+        <img src="slike/cvijece.8.jpg" />
+        <img src="slike/cvijece.9.jpg" />
+        <img src="slike/cvijece.10.jpg" />
+        <img src="slike/cvijece.11.jpg" />
+        <img src="slike/cvijece.12.jpg" />
+        <img src="slike/cvijece.13.jpg" />
+        <img src="slike/cvijece.14.jpg" />
 
         <button class="prev">&#10094;</button>
         <button class="next">&#10095;</button>
@@ -333,10 +69,10 @@
     <section class="cjenovnik" id="cjenovnik" data-animate>
         <h2>Cjenovnik</h2>
         <table>
-            <tr><td>Mali buket</td><td>5–7 svijeća...</td><td class="price">15–25 KM</td></tr>
-            <tr><td>Srednji buket</td><td>9–10 svijeća...</td><td class="price">25–35 KM</td></tr>
-            <tr><td>Veliki buket</td><td>10–16 svijeća...</td><td class="price">35–50 KM</td></tr>
-            <tr><td>Premium buket</td><td>16+ svijeća...</td><td class="price">55–70 KM</td></tr>
+            <tr><td>Mali buket</td><td>5–7 svijeća, Idealan poklon – kompaktan, povoljan i vizuelno sladak.</td><td class="price">15–25 KM</td></tr>
+            <tr><td>Srednji buket</td><td>9–10 svijeća, Najprodavanija opcija: pun, raskošan i odličan odnos cijene i izgleda.</td><td class="price">25–35 KM</td></tr>
+            <tr><td>Veliki buket</td><td>10–16 svijeća, Impresivan, bogat i odličan za rođendane, godišnjice i posebne prilike.</td><td class="price">35–50 KM</td></tr>
+            <tr><td>Premium buket</td><td>16+ svijeća, Za one koji traže luksuz i nezaboravan vizualni doživljaj.</td><td class="price">55–70 KM</td></tr>
         </table>
     </section>
 
@@ -347,52 +83,7 @@
         </a>
         <p>Designed by Dragojević - ElektroLob</p>
     </footer>
-
-    <!-- SCRIPT -->
-    <script>
-        /* Hamburger meni */
-        document.getElementById("navToggle").onclick = () => {
-            document.getElementById("navLinks").classList.toggle("show");
-        };
-
-        /* Galerija */
-        let slides = document.querySelectorAll(".gallery img");
-        let current = 0;
-
-        function showSlide(i) {
-            slides.forEach(s => s.classList.remove("active"));
-            slides[i].classList.add("active");
-        }
-
-        function nextSlide() {
-            current = (current + 1) % slides.length;
-            showSlide(current);
-        }
-
-        function prevSlide() {
-            current = (current - 1 + slides.length) % slides.length;
-            showSlide(current);
-        }
-
-        setInterval(nextSlide, 4000);
-        document.querySelector(".next").onclick = nextSlide;
-        document.querySelector(".prev").onclick = prevSlide;
-
-        /* Animacije sekcija */
-        const animated = document.querySelectorAll("[data-animate]");
-        function checkAnimations() {
-            let trigger = window.innerHeight * 0.85;
-
-            animated.forEach(el => {
-                if (el.getBoundingClientRect().top < trigger) {
-                    el.classList.add("visible");
-                }
-            });
-        }
-
-        window.addEventListener("scroll", checkAnimations);
-        window.addEventListener("load", checkAnimations);
-    </script>
+    <script src="script.js"></script>
 
 </body>
 </html>
