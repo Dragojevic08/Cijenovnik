@@ -237,12 +237,16 @@ footer {
     footer img {
         width: 40px;
     }
+footer a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+}
 
-    footer p {
-        color: white;
-        font-weight: 500;
-        font-size: 16px;
+    footer a:hover {
+        text-decoration: underline;
     }
+    
 
 /* -------------------------------- MOBILNA ADAPTACIJA -------------------------------- */
 
@@ -322,3 +326,4 @@ footer {
         font-size: 16px;
         line-height: 1.5;
     }
+
