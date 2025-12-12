@@ -30,14 +30,30 @@ body {
     top: 0;
     width: 100%;
     padding: 10px 20px;
-    background: rgba(255, 182, 193, 0.92);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    background: transparent; 
+    backdrop-filter: blur(0px);
+    box-shadow: none;
     z-index: 2000;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: all 0.3s ease;
 }
+    .navbar.scrolled {
+        background: rgba(255, 182, 193, 0.92);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        backdrop-filter: blur(10px);
+    }
+    .navbar:not(.scrolled) .nav-links li a,
+    navbar:not(.scrolled) .nav-toggle{
+        color: white;
+        opacity 0.8;
+    }
+    .navbar.scrolled .nav-links li a,
+    navbar:not(.scrolled) .nav-toggle {
+        color: white;
+        opacity 1;
+    }
 
 .nav-logo {
     font-size: 1.5rem;
@@ -101,7 +117,7 @@ body {
 
 .hero {
     height: 80vh;
-    margin-top: 80px;
+    margin-top: 0px;
     padding: 0 15px;
     display: flex;
     justify-content: center;
@@ -125,12 +141,12 @@ body {
 }
 
     .hero-content img.logo {
-        width: 120px;
+        width: 150px;
         margin-bottom: 15px;
     }
 
     .hero-content h1 {
-        font-size: 42px;
+        font-size: 32px;
         text-shadow: 2px 2px 12px rgba(255, 105, 180, 0.7);
         color: #fff176;
     }
@@ -204,24 +220,6 @@ body {
         right: 12px;
     }
 
-/* -------------------------------- CJENOVNIK -------------------------------- */
-
-.cjenovnik table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 16px;
-}
-
-.cjenovnik td {
-    padding: 10px 0;
-    border-bottom: 1px solid #ffb6c1;
-}
-
-.price {
-    text-align: right;
-    font-weight: bold;
-    color: #ff1493;
-}
 
 /* -------------------------------- FOOTER -------------------------------- */
 
@@ -266,9 +264,6 @@ footer {
         font-size: 16px;
     }
 
-    .cjenovnik table {
-        font-size: 14px;
-    }
 
     .gallery button {
         font-size: 20px;
@@ -276,3 +271,54 @@ footer {
     }
 }
 
+/*----------------------------CJENOVNIK-----------------*/
+.options-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.option {
+    background: #ffb6c1;
+    padding: 18px 22px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 12px rgba(255,105,180,0.25);
+    color: white;
+    user-select: none;
+}
+
+    /* Kada je neka opcija izabrana */
+    .option.active {
+        transform: scale(1.15);
+        background: #ff69b4;
+    }
+
+    /* Kada druge opcije nisu izabrane */
+    .option.dimmed {
+        transform: scale(0.9);
+        opacity: 0.8;
+    }
+
+/* Info blok */
+.selected-info {
+    background: #ffe4ec;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(255,105,180,0.2);
+}
+
+    .selected-info h3 {
+        color: #ff69b4;
+        margin-bottom: 8px;
+    }
+
+    .selected-info p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
