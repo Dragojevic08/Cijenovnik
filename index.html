@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lumière Royal</title>
+    <title>Lumière Royale</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -11,8 +11,8 @@
 <body>
 
     <!-- NAV -->
-    <nav class="navbar">
-        <div class="nav-logo">Lumière Royal</div>
+    <nav class="navbar" id="navbar">
+        <div class="nav-logo">Lumière Royale</div>
         <button class="nav-toggle" id="navToggle">☰</button>
 
         <ul class="nav-links" id="navLinks">
@@ -26,8 +26,8 @@
     <!-- HERO -->
     <section class="hero" id="hero">
         <div class="hero-content">
-            <img src="slike/drugimoram.png" class="logo" alt="Logo" />
-            <h1>Lumière Royal</h1>
+            <img src="slike/moramdrugi.png" class="logo" alt="Logo" />
+            <h1>Buketi sa dekorativnim svijećama</h1>
         </div>
     </section>
 
@@ -35,7 +35,7 @@
     <section class="onama" id="onama" data-animate>
         <h2>O nama</h2>
         <p>
-            Lumière Royal izrađuje luksuzne, ručno pravljene bukete od svijeća –
+            Lumière Royale izrađuje luksuzne, ručno pravljene bukete od svijeća –
             savršene za poklon, dekoraciju i posebne trenutke. Naši buketi su
             kombinacija kreativnosti i pažljivo biranih materijala, pružajući
             toplinu i eleganciju svakom prostoru. Svaki buket je jedinstven i
@@ -68,17 +68,39 @@
     <!-- CJENOVNIK -->
     <section class="cjenovnik" id="cjenovnik" data-animate>
         <h2>Cjenovnik</h2>
-        <table>
-            <tr><td>Mali buket</td><td>5–7 svijeća, Idealan poklon – kompaktan, povoljan i vizuelno sladak.</td><td class="price">15–25 KM</td></tr>
-            <tr><td>Srednji buket</td><td>9–10 svijeća, Najprodavanija opcija: pun, raskošan i odličan odnos cijene i izgleda.</td><td class="price">25–35 KM</td></tr>
-            <tr><td>Veliki buket</td><td>10–16 svijeća, Impresivan, bogat i odličan za rođendane, godišnjice i posebne prilike.</td><td class="price">35–50 KM</td></tr>
-            <tr><td>Premium buket</td><td>16+ svijeća, Za one koji traže luksuz i nezaboravan vizualni doživljaj.</td><td class="price">55–70 KM</td></tr>
-        </table>
+
+        <div class="options-container">
+
+            <div class="option" data-name="Mali buket" data-desc="5–7 svijeća, kompaktan i idealan poklon." data-price="15–25 KM">
+                Mali buket
+            </div>
+
+            <div class="option" data-name="Srednji buket" data-desc="9–10 svijeća, najpopularnija varijanta — pun i elegantan." data-price="25–35 KM">
+                Srednji buket
+            </div>
+
+            <div class="option" data-name="Veliki buket" data-desc="10–16 svijeća, raskošan izgled i odličan za posebne prilike." data-price="35–50 KM">
+                Veliki buket
+            </div>
+
+            <div class="option" data-name="Premium buket" data-desc="16+ svijeća, luksuzan i upečatljiv aranžman." data-price="55–70 KM">
+                Premium buket
+            </div>
+
+            <div class="option" data-name="Royale buket" data-desc="Najveći i najekskluzivniji — maksimalna elegancija." data-price="75–100 KM">
+                Royale buket
+            </div>
+
+        </div>
+
+        <div class="selected-info" id="selectedInfo">
+            <p>Izaberite tip buketa da biste vidjeli opis i cijenu.</p>
+        </div>
     </section>
 
     <!-- FOOTER -->
     <footer>
-        <a href="https://www.instagram.com/lumiereroyale_/" target="_blank">
+        <a href="https://www.instagram.com/lumiereRoyale_/" target="_blank">
             <img src="slike/instagram.png" alt="Instagram" />
         </a>
         <p>Designed by Dragojević - ElektroLob</p>
