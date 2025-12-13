@@ -1,3 +1,13 @@
+:root {
+    --rose-light: #f4c1d9;
+    --rose-mid: #e39ebb;
+    --plum-light: #C080C0;
+    --plum-dark: #A060A0;
+    --pink-box: #ffe4ec;
+    --white: #ffffff;
+}
+
+/* RESET */
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +16,7 @@
 
 body {
     font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
-    background: #f4c1d9;
+    background: var(--rose-light);
     color: #333;
     scroll-behavior: smooth;
 }
@@ -30,7 +40,7 @@ body {
     top: 0;
     width: 100%;
     padding: 10px 20px;
-    background: transparent; 
+    background: transparent;
     backdrop-filter: blur(0px);
     box-shadow: none;
     z-index: 2000;
@@ -39,20 +49,11 @@ body {
     align-items: center;
     transition: all 0.3s ease;
 }
+
     .navbar.scrolled {
         background: rgba(255, 182, 193, 0.92);
         box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         backdrop-filter: blur(10px);
-    }
-    .navbar:not(.scrolled) .nav-links li a,
-    navbar:not(.scrolled) .nav-toggle{
-        color: white;
-        opacity 0.8;
-    }
-    .navbar.scrolled .nav-links li a,
-    navbar:not(.scrolled) .nav-toggle {
-        color: white;
-        opacity 1;
     }
 
 .nav-logo {
@@ -77,7 +78,7 @@ body {
     }
 
         .nav-links li a:hover {
-            color: #ff69b4;
+            color: var(--rose-mid);
         }
 
 /* Hamburger */
@@ -116,8 +117,7 @@ body {
 /* -------------------------------- HERO -------------------------------- */
 
 .hero {
-    height: 80vh;
-    margin-top: 0px;
+    height: 100vh;
     padding: 0 15px;
     display: flex;
     justify-content: center;
@@ -160,7 +160,7 @@ body {
     max-width: 900px;
     margin: 90px auto;
     padding: 30px;
-    background: #ffe4ec;
+    background: var(--pink-box);
     border-radius: 15px;
     box-shadow: 0 4px 20px rgba(255,105,180,0.25);
 }
@@ -170,7 +170,7 @@ body {
         text-align: center;
         font-size: 32px;
         margin-bottom: 20px;
-        color: #ff69b4;
+        color: var(--plum-light);
     }
 
     .onama p {
@@ -220,14 +220,13 @@ body {
         right: 12px;
     }
 
-
 /* -------------------------------- FOOTER -------------------------------- */
 
 footer {
     margin-top: 50px;
-    background: #ffb6c1;
+    background: var(--rose-mid);
     padding: 15px;
-    border-top: 2px solid #ff69b4;
+    border-top: 2px solid var(--plum-dark);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -236,23 +235,24 @@ footer {
 
     footer img {
         width: 40px;
+        margin-right: 50px;
     }
-footer a {
-    text-decoration: none;
-    color: white;
-    font-weight: 500;
-}
 
-    footer a:hover {
-        text-decoration: underline;
+    footer a {
+        text-decoration: none;
+        color: var(--white);
+        font-weight: 500;
     }
-    
+
+        footer a:hover {
+            text-decoration: underline;
+        }
 
 /* -------------------------------- MOBILNA ADAPTACIJA -------------------------------- */
 
 @media (max-width: 600px) {
     .hero {
-        height: 70vh;
+        height: 100vh;
     }
 
     .hero-content h1 {
@@ -268,14 +268,14 @@ footer a {
         font-size: 16px;
     }
 
-
     .gallery button {
         font-size: 20px;
         padding: 6px 10px;
     }
 }
 
-/*----------------------------CJENOVNIK-----------------*/
+/*---------------------------- CJENOVNIK ----------------------------*/
+
 .options-container {
     display: flex;
     flex-wrap: wrap;
@@ -285,7 +285,7 @@ footer a {
 }
 
 .option {
-    background: #ffb6c1;
+    background: var(--rose-mid);
     padding: 18px 22px;
     border-radius: 12px;
     cursor: pointer;
@@ -296,13 +296,12 @@ footer a {
     user-select: none;
 }
 
-    /* Kada je neka opcija izabrana */
     .option.active {
         transform: scale(1.15);
-        background: #ff69b4;
+        background: var(--rose-mid);
+        filter: brightness(85%);
     }
 
-    /* Kada druge opcije nisu izabrane */
     .option.dimmed {
         transform: scale(0.9);
         opacity: 0.8;
@@ -310,7 +309,7 @@ footer a {
 
 /* Info blok */
 .selected-info {
-    background: #ffe4ec;
+    background: var(--pink-box);
     border-radius: 12px;
     padding: 20px;
     text-align: center;
@@ -318,12 +317,12 @@ footer a {
 }
 
     .selected-info h3 {
-        color: #ff69b4;
+        color: var(--plum-light);
         margin-bottom: 8px;
     }
 
     .selected-info p {
+        color: var(--plum-light);
         font-size: 16px;
         line-height: 1.5;
     }
-
